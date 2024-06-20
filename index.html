@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SynthWave</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>SynthWave</h1>
+    <div id="synth">
+        <div id="keys">
+            <div class="key" data-note="C"></div>
+            <div class="key" data-note="C#"></div>
+            <div class="key" data-note="D"></div>
+            <div class="key" data-note="D#"></div>
+            <div class="key" data-note="E"></div>
+            <div class="key" data-note="F"></div>
+            <div class="key" data-note="F#"></div>
+            <div class="key" data-note="G"></div>
+            <div class="key" data-note="G#"></div>
+            <div class="key" data-note="A"></div>
+            <div class="key" data-note="A#"></div>
+            <div class="key" data-note="B"></div>
+            <div class="key" data-note="C2"></div>
+            <div class="key" data-note="C#2"></div>
+            <div class="key" data-note="D2"></div>
+            <div class="key" data-note="D#2"></div>
+        </div>
+        <div id="screens">
+            <div class="screen"></div>
+            <div class="screen"></div>
+        </div>
+        <div id="knobs">
+            ${Array.from({ length: 64 }).map((_, i) => `<div class="knob"></div>`).join('')}
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

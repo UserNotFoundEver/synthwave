@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SynthWave</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #282c34;
+            color: white;
+            text-align: center;
+        }
+
+        #controls {
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>SynthWave</h1>
+    <div id="controls">
+        <button onclick="playSynth()">Play</button>
+        <button onclick="stopSynth()">Stop</button>
+    </div>
+    <script>
+        let audioContext;
+        let oscillator;
+
+        function playSynth() {
+            audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            oscillator = audioContext.createOscillator();
+            oscillator.type = 'sawtooth'; // You can change this to 'sine', 'square', 'triangle'
+            oscillator.frequency.setValueAtTime(440, audioContext.currentTime); // A4 note
+
+            const gainNode = audioContext.createGain();
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+
+            oscillator.start();
+        }
+
+        function stopSynth() {
+            if (oscillator) {
+                oscillator.stop();
+                oscillator.disconnect();
+                audioContext.close();
+            }
+        }
+    </script>
+</body>
+</html>
