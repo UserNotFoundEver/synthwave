@@ -1,2 +1,2 @@
 # synthwave
-js javascript synth future solidity code potentail 
+js javascript synth with an alt python backend for machine learning as well as solidity
